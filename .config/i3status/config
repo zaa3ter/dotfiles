@@ -42,7 +42,7 @@ wireless _first_ {
 
 
 time {
-    format = "%I:%M:%S %p\t\t%m/%d %A\t\t\t"
+    format = "%I:%M:%S %p\t\t\t%m/%d %a\t\t\t"
 }
 
 path_exists VPN {

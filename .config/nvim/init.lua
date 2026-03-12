@@ -33,7 +33,7 @@ require("config.lsp")
 vim.diagnostic.config({
 	--	virtual_lines =true,
 	virtual_text = true, -- show inline text (under the line)
-	signs = false,     -- show in sign column
+	signs = false,    -- show in sign column
 	underline = true, -- underline the error in code
 	update_in_insert = false,
 	float = {

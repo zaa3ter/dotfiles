@@ -8,7 +8,7 @@ return {
 				shade_terminals = false,  -- remove shading (for clarity)
 				start_in_insert = true,
 			})
-			vim.keymap.set("t", "<C-j>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Enter Normal Mode from terminal" })
+			vim.keymap.set("t", "jj", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Enter Normal Mode from terminal" })
 			vim.keymap.set("n", "<A-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 			vim.keymap.set("t", "<A-t>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
 		end,
