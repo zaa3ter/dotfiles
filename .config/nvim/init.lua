@@ -13,13 +13,11 @@ vim.opt.listchars = {
 }
 vim.o.scrolloff = 8
 vim.o.sidescroll = 1
-vim.o.sidescrolloff = 8
+vim.o.sidescrolloff = 15
 vim.o.hlsearch = false
 vim.o.incsearch = true
 vim.o.termguicolors = true
 vim.o.cursorline = true
-vim.o.spell = true
-vim.o.spelllang = "en_us"
 vim.o.wrap = true
 vim.o.confirm = true
 
@@ -60,15 +58,25 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
 	end,
 })
 
--- Set colorscheme
-vim.cmd.colorscheme "dracula"
+-- -- Set colorscheme
+-- require("dracula").setup({
+-- 	colors = {
+-- 		bg = "#000000",
+-- 		bg_dark = "#000000",
+-- 		bg_float = "#000000",
+-- 	},
+-- 	overrides = {
+-- 		Visual = { bg = "#44475a" },               -- visual mode selection
+-- 		CursorLine = { bg = "#1a1a1a" },           -- current line
+-- 		PmenuSel = { bg = "#44475a", fg = "#ffffff" }, -- completion selection
+-- 	}
+-- })
+--
+-- vim.opt.background = "dark"
+-- vim.cmd.colorscheme "dracula"
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#FFD700", bold = true })
 vim.api.nvim_set_hl(0, "LineNr", { fg = "#ff79c6" }) -- green
-vim.api.nvim_set_hl(0, "SpellBad", { undercurl = false, underline = false })
-vim.api.nvim_set_hl(0, "SpellCap", { undercurl = false, underline = false })
-vim.api.nvim_set_hl(0, "SpellLocal", { undercurl = false, underline = false })
-vim.api.nvim_set_hl(0, "SpellRare", { undercurl = false, underline = false })
 
---vim.api.nvim_set_hl(0, "Normal", { bg = "none"})
---vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none"})
+-- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 --vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })

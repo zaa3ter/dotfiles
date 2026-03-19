@@ -27,7 +27,8 @@ family = "JetBrainsMono NF"
 style = "Regular"
 
 [colors.primary]
-background = "#282a36"
+#background = "#282a36"
+background = "#010101"
 foreground = "#f8f8f2"
 
 [colors.normal]
@@ -55,8 +56,8 @@ text   = "#44475a"
 cursor = "#f8f8f2"
 
 [colors.selection]
-text       = "#f8f8f2"
-background = "#44475a"
+text       = "#000000"
+background = "#ffffff"
 
 [[keyboard.bindings]]
 key = "V"

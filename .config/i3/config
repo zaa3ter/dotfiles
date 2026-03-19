@@ -14,26 +14,18 @@ exec --no-startup-id feh --bg-fill /usr/share/backgrounds/Nighthawks_by_Edward_H
 exec --no-startup-id $zscripts/battery-warner.sh
 #power manager
 bindsym --release XF86PowerOff exec $zscripts/power-menu.sh 
-#exec --no-startup-id xset s 2800 0
-#exec --no-startup-id xset dpms 1800 2500 3600
-#---
-#exec --no-startup-id xset s 1800 1800
-#exec --no-startup-id xset +dpms
-#exec --no-startup-id xset dpms 0 2700 2700
-#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xset s 600 500
+exec --no-startup-id xss-lock -n /usr/share/doc/xss-lock/dim-screen.sh -- i3lock -n
 # Refresh i3status
 set $refresh_i3status killall -SIGUSR1 i3status
 # Arabic
 bindsym $mod+F3 exec --no-startup-id $zscripts/kblayout.sh
 # Ask
 bindsym $mod+slash exec --no-startup-id alacritty --class full-term -e bash $zscripts/wikiman.sh
-# Volume Up
+# Volume
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# Volume Down
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# Mute
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# Mic Mute
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -154,9 +146,9 @@ assign [class="Thorium-browser" instance="crx_hnpfjngllnobngcgfapefoaidbinmjnm"]
 assign [class="Google-chrome" instance="crx_cinhimbnkkaeohfgghhklpknlkffjgod"] $ws10
 assign [class="firefox" title=".*YouTube.*"] $ws10
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+c restart
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+r restart
+bindsym $mod+r reload
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # resize window (you can also use the mouse for that)

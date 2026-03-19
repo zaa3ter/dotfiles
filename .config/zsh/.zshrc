@@ -28,7 +28,7 @@ setopt HIST_VERIFY              # Show command with history expansion before run
 setopt auto_cd
 setopt HIST_IGNORE_SPACE    # Don't save commands starting with space
 setopt EXTENDED_HISTORY     # Save timestamp
-export KEYTIMEOUT=1
+#export KEYTIMEOUT=1
 
 #match menu
 zstyle ':completion:*' use-cache on
@@ -37,46 +37,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 bindkey -v
-# curser
-zle-keymap-select () {
-	if [[ ${KEYMAP} == vicmd ]]; then
-		echo -ne '\e[2 q' #block
-	else
-		echo -ne '\e[6 q' #thin
-	fi
-}
-zle -N zle-keymap-select
 
-zle-line-init () {
-	zle -K viins
-	echo -ne '\e[6 q' #thin 
-}
+source ~/.config/zsh/funcs.zsh
 
-zle -N zle-line-init
-
-
-fuck(){
-	sudo $(fc -ln -1)
-}
-
-
-syncd() {
-	rsync -Pavh  --update\
-		--exclude=".git/"\
-		--include-from="$HOME/.config/sync.list.txt"\
-		--exclude="*"\
-		"$HOME"/ ~/code/dotfiles/
-	}
-
-export PATH="$PATH:/home/zaater/.local/bin"
-export PATH="$PATH:$GOPATH/bin"
-loadpy() {
-	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/bin:$PATH"
-
-	eval "$(pyenv init --path)"
-	eval "$(pyenv init -)"
-}
 export STARSHIP_CONFIG=/home/zaater/.config/starship/starship.toml
 autoload -Uz bracketed-paste-magic
 zle -N bracketed-paste bracketed-paste-magic
